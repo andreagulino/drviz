@@ -1,3 +1,11 @@
+The following is a description of the project developed for the course of **Data Results and Visualization** (2018).
+
+The main objective of this interactive tool is the visualization of the mutations that happen in particular areas of the DNA in patients affected by different types of cancer.
+
+The tool is available at http://genomic.elet.polimi.it/drviz/, where the description that follows can be found in the home page with some extra feature (directly loading of the examples) and better rendering.
+
+
+
 # Introduction
 
 Every cell in the human body contains a chemical substance called deoxyribonucleic acid (DNA). DNA is packaged into structures called chromosomes. Each human cell contains exactly 23 pairs, or a total of 46 chromosomes. Chromosomes come in pairs because one set of 23 chromosomes comes from the mother and the other set comes from the father.
