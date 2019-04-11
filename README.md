@@ -84,6 +84,8 @@ The palette used for the bars derives from this article / tool and guarantees ac
 
 <img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/example1.png" width="450">
 
+<img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/palette.png" width="300" style="margin-left:150px"/>
+
 ## View 2: Junctions
 The second interactive plot is a heatmap that aims to highlight how mutations affecting motifs that fall within a junction - in contrast to those located at generic positions whithin a chromosome - are most likely the ones that caused the development of a given cancer.
 
