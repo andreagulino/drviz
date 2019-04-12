@@ -110,6 +110,6 @@ The third interactive plot is a heat-map that aims to compare the effect of a se
 
 Each row of the heat-map shows the mutation density of the selected class of mutations for a specific cancer type.
 
-In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin.
+In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin of that row.
 
 <img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/example3.png" width="450">
