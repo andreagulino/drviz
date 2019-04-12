@@ -101,7 +101,7 @@ The second interactive plot is a heat-map that aims to highlight how mutations a
 
 The first row of the heat-map shows the mutation density around generic motifs, the second row is displaying the density for motifs falling within a junction.
 
-In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin.
+In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin. Note that the same color on different rows does not denote the same amount of mutations; the objective is to compare densities.
 
 <img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/example2.png" width="450">
 
