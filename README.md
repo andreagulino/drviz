@@ -51,6 +51,8 @@ Motif Position: whether the motif falls within the junction of a TAD or not
   - An deletion of C is denoted by "C > -".
   - A generic mutation of A (either mutation to another nucleobase or deletion) is denoted by "A > *".
   - A generic mutation into A (either mutation of another nucleobase or insertion of A) is denoted by "* > A".
+  
+ The interface is a single-page web application developed with Angular JS. Data is dynamically loaded depending on the choices of the user. Plots are built with pure D3.js (v4).
 
 ## Data
 The datasets used in all the views available in this tool are csv files of this kind:
