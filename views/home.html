@@ -62,6 +62,7 @@
             </ul>
         </li>
     </ul>
+    <p>The interface is a single-page web application developed with Angular JS. Data is dynamically loaded depending on the choices of the user. Plots are built with pure D3.js (v4).</p>
 
     <h4>Data</h4>
     <p>
@@ -140,11 +141,11 @@
     <div class="row">
         <div class="col-md-8">
 
-            <p>The second interactive plot is a heatmap that aims to highlight how mutations affecting motifs that fall within a junction - in contrast to those located at generic positions whithin a chromosome - are most likely the ones that caused the development of a given cancer.</p>
+            <p>The second interactive plot is a heat-map that aims to highlight how mutations affecting motifs that fall within a junction - in contrast to those located at generic positions within a chromosome - are most likely the ones that caused the development of a given cancer.</p>
 
-            <p> The first row of the heatmap shows the mutation density around generic motifs, the second row is displaying the density for motifs falling within a junction. </p>
+            <p> The first row of the heat-map shows the mutation density around generic motifs, the second row is displaying the density for motifs falling within a junction. </p>
 
-            <p>In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin. </p>
+            <p>In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin in that row. Note that the same color on different rows does not denote the same amount of mutations; the objective is to compare densities. </p>
 
         </div>
         <div class="col-md-4 text-center" >
@@ -162,11 +163,11 @@
     <h2>View 3: Tumors</h2>
     <div class="row">
         <div class="col-md-8">
-            <p>The third interactive plot is a heatmap that aims to compare the effect of a selected set of mutations on different cancer types. For instance, considering only "C > T" and "G > A", we can see how they are mostly affetcing motifs in patients with Melanoma and Skin Cancer, since those mutations are most likely caused by sun rays.  </p>
+            <p>The third interactive plot is a heatmap that aims to compare the effect of a selected set of mutations on different cancer types. For instance, considering only "C > T" and "G > A", we can see how they are mostly affecting motifs in patients with Melanoma and Skin Cancer, since those mutations are most likely caused by sun rays.  </p>
 
             <p> Each row of the heatmap shows the mutation density of the selected class of mutations for a specific cancer type. </p>
 
-            <p>In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin. </p>
+            <p>In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin in that row./p>
         </div>
         <div class="col-md-4 text-center" >
             <div style="background-image: url('img/example3.png');background-repeat: no-repeat; background-position: center; background-size: contain;">

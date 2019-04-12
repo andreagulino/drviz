@@ -80,15 +80,15 @@ function uc1_addLegendItem(g, index, color, text) {
 
     //append legend colour blocks
     g.legend.append("rect")
-        .attr("x", g.width - 380)
+        .attr("x", g.width - 305)
         .attr("y", 12*index)
-        .attr("width", 20)
+        .attr("width", 10)
         .attr("height", 10)
         .attr("fill", color);
 
     //append legend texts
     g.legend.append("text")
-        .attr("x", g.width - 385)
+        .attr("x", g.width - 310)
         .attr("y", 5+12*index)
         .attr("dy", "0.32em")
         .text(text);
@@ -233,7 +233,7 @@ function uc1(data, binSize, range, mutationTypes, stacked) {
     var g = {} // here we put all useful objects describing our plot
 
     // Set the dimensions and margins of the plot
-    g.margin = {top: 10, right: 30, bottom: 30, left: 40},
+    g.margin = {top: 10, right: 50, bottom: 30, left: 55},
         g.width  = 700 - g.margin.left - g.margin.right,
         g.height = 400 - g.margin.top - g.margin.bottom;
 
@@ -266,6 +266,17 @@ function uc1(data, binSize, range, mutationTypes, stacked) {
         .style("text-anchor", "middle")
         .style("font-size", "0.8em")
         .text("distance (bp)");
+
+    // Label for the y axis
+    g.svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -2 - g.margin.left)
+        .attr("x",0 - (g.height / 2))
+        .attr("dy", "0.8em")
+        .style("text-anchor", "middle")
+        .style("font-size", "0.8em")
+        .text("number of mutations per bin");      
+
 
 
     // Build the histogram with the provided number of bins
