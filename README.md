@@ -95,18 +95,18 @@ The palette used for the bars derives from this article / tool and guarantees ac
 <img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/palette.png" width="300" style="margin-left:150px"/>
 
 ## View 2: Junctions
-The second interactive plot is a heatmap that aims to highlight how mutations affecting motifs that fall within a junction - in contrast to those located at generic positions whithin a chromosome - are most likely the ones that caused the development of a given cancer.
+The second interactive plot is a heat-map that aims to highlight how mutations affecting motifs that fall within a junction - in contrast to those located at generic positions within a chromosome - are most likely the ones that caused the development of a given cancer.
 
-The first row of the heatmap shows the mutation density around generic motifs, the second row is displaying the density for motifs falling within a junction.
+The first row of the heat-map shows the mutation density around generic motifs, the second row is displaying the density for motifs falling within a junction.
 
 In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin.
 
 <img src="https://raw.githubusercontent.com/andreagulino/drviz/master/img/example2.png" width="450">
 
 ## View 3: Tumors
-The third interactive plot is a heatmap that aims to compare the effect of a selected set of mutations on different cancer types. For instance, considering only "C > T" and "G > A", we can see how they are mostly affetcing motifs in patients with Melanoma and Skin Cancer, since those mutations are most likely caused by sun rays.
+The third interactive plot is a heat-map that aims to compare the effect of a selected set of mutations on different cancer types. For instance, considering only "C > T" and "G > A", we can see how they are mostly affecting motifs in patients with Melanoma and Skin Cancer, since those mutations are most likely caused by sun rays.
 
-Each row of the heatmap shows the mutation density of the selected class of mutations for a specific cancer type.
+Each row of the heat-map shows the mutation density of the selected class of mutations for a specific cancer type.
 
 In each row (independently), normalization is performed by dividing the number of elements in each bin by the maximum number of element contained in a bin.
 
