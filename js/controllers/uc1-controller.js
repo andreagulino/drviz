@@ -28,7 +28,7 @@ app.controller('uc1_ctrl', function($scope, $rootScope, $routeParams, $http) {
         stacked: true // whether to use different colors for different mutation types or plot them with a single color
     }
 
-    $scope.plot = {binSize: 10, d3graph: null}
+    $scope.plot = {binSize: 10, d3graph: null, showTotal: true}
     $scope.slider = document.getElementById("slider");
 
     // Retrieve the list of available tumor types
@@ -122,7 +122,7 @@ app.controller('uc1_ctrl', function($scope, $rootScope, $routeParams, $http) {
 
             // Generate the plot
             $scope.plot.d3graph = uc1($scope.data, $scope.plot.binSize, selectedRange, $scope.getSelectedTypes(), 
-                                      $scope.mutationTypes.stacked);
+                                      $scope.mutationTypes.stacked, $scope.plot.showTotal);
 
             // Set callback on slider change
             $scope.slider.noUiSlider.on('set.one', function () { 
@@ -151,7 +151,8 @@ app.controller('uc1_ctrl', function($scope, $rootScope, $routeParams, $http) {
     // Update the plot
     $scope.updatePlot = function() {
         // update function is defined in uc1.js.
-        uc1_update($scope.data,$scope.plot.d3graph, $scope.plot.binSize, $scope.getSelectedTypes(), $scope.mutationTypes.stacked);
+        uc1_update($scope.data,$scope.plot.d3graph, $scope.plot.binSize, $scope.getSelectedTypes(),
+                   $scope.mutationTypes.stacked, $scope.plot.showTotal);
     } 
 
 

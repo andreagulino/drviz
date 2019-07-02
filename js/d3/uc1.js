@@ -95,7 +95,7 @@ function uc1_addLegendItem(g, index, color, text) {
 }
 
 // This function (re-)builds the graph g provided the number of bins and selected mutation types
-function uc1_update(data, g, binSize, mutationTypes, stacked) {
+function uc1_update(data, g, binSize, mutationTypes, stacked, showTotal) {
 
     console.log("Building an histogram with "+binSize+" binSize.");
 
@@ -131,8 +131,6 @@ function uc1_update(data, g, binSize, mutationTypes, stacked) {
      * - x0: start coordinate of the bin
      * - x1: stop coordinate of the bin */
     var bins = histogram(data);
-
-    console.log(binSize+" "+bins.length);
 
     /* Now, since we can know the maximum value of y, 
      * we can complete the definition of yAxisScale and then build the yAxis.
@@ -174,34 +172,53 @@ function uc1_update(data, g, binSize, mutationTypes, stacked) {
         .attr("transform", "translate("+(g.width-250)+",0)");
 
     // Bars representing the amount of mutations in a bin, independently on the type of mutation
-    uc1_addBars(g, 0, bins, null, "silver");
-    uc1_addLegendItem(g, 0, "silver", "ALL");
+    if (showTotal) {
+        uc1_addBars(g, 0, bins, null, "silver");
+        uc1_addLegendItem(g, 0, "silver", "ALL");
+    }
 
     // Bars representing the selected types of mutations
 
     alreadyAdded = bins.map(function(bin){return 0;});
 
+    filteredArray = [];
+    maxInFiltered = 0;
+
     for( var i=0; i<mutationTypes.length; i++) {
 
         type = mutationTypes[i];
 
+        filteredData = uc1_getFilteredData(data, [type]);
+        filteredArray[i] = histogram(filteredData);
+
+        curMax = d3.max( filteredArray[i], function(d) { return d.length })
+        maxInFiltered = curMax>maxInFiltered?curMax:maxInFiltered;
+
+    }
+
+    if( !showTotal) {
+        g.yAxisScale.domain([0, maxInFiltered + 20]);
+
+        g.yAxis
+            .transition()
+            .duration(1000)
+            .call(d3.axisLeft(g.yAxisScale));
+    }
+
+
+    for( i=0; i<mutationTypes.length; i++) {
         if(stacked) {
             color = uc1_colors[i];
             legendText = type.from+" > "+type.to;
         } else {
             color = uc1_colors[0];
             legendText = "selection";
-
         }
 
-        filteredData = uc1_getFilteredData(data, [type]);
-        filteredBins = histogram(filteredData);
-
-        alreadyAdded = uc1_addBars(g, i, filteredBins, alreadyAdded, color, legendText);
+        alreadyAdded = uc1_addBars(g, i, filteredArray[i], alreadyAdded, color, legendText);
 
         if( stacked || i<1)
             uc1_addLegendItem(g, i+1, color, legendText);
-
     }
 
 
@@ -210,7 +227,7 @@ function uc1_update(data, g, binSize, mutationTypes, stacked) {
 }
 
 /* This function rescales the x axis, given the graph object and the new provided domain (range) */
-function uc1_rescaleX(data, g, binSize, range, mutationTypes, stacked) {
+function uc1_rescaleX(data, g, binSize, range, mutationTypes, stacked, showTotal) {
 
     // uc1(data, binSize, range, mutationTypes);
     //return;
@@ -224,11 +241,11 @@ function uc1_rescaleX(data, g, binSize, range, mutationTypes, stacked) {
         .duration(1000)
         .call(d3.axisBottom(g.xAxisScale).tickFormat(function(d) { return d3.format(".2s")(d); }));
 
-    uc1_update(data, g, binSize, mutationTypes,stacked);
+    uc1_update(data, g, binSize, mutationTypes,stacked, showTotal);
 }
 
 /* Build the graph with an initial number of bins */
-function uc1(data, binSize, range, mutationTypes, stacked) {
+function uc1(data, binSize, range, mutationTypes, stacked, showTotal) {
 
     var g = {} // here we put all useful objects describing our plot
 
@@ -280,7 +297,7 @@ function uc1(data, binSize, range, mutationTypes, stacked) {
 
 
     // Build the histogram with the provided number of bins
-    uc1_update(data, g, binSize, mutationTypes, stacked);
+    uc1_update(data, g, binSize, mutationTypes, stacked, showTotal);
 
     // return a reference to the graph
     return g;
